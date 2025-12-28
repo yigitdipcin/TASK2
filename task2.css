@@ -1,0 +1,261 @@
+:root {
+  --bg: #01030a;
+  --text: #eaf0ff;
+  --muted: #b8bfd9;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+}
+
+p {
+  margin: 0;
+}
+
+.hero,
+.section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.layer {
+  position: absolute;
+  inset: -18%;
+  background-size: cover;
+  background-position: center;
+  transform: translate3d(0, var(--parallax-y, 0px), 0);
+  will-change: transform;
+}
+
+.hero-space {
+  position: absolute;
+  inset: 0;
+  background: url("ert.jpg") center/cover no-repeat;
+  transform: translate3d(0, var(--parallax-y, 0px), 0) scale(var(--section-scale, 1));
+  opacity: var(--section-opacity, 1);
+}
+
+.space-bg,
+.stars-bg {
+  position: fixed;
+  inset: -10%;
+  z-index: 0;
+  pointer-events: none;
+  transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.05);
+  will-change: transform;
+}
+
+.space-bg {
+  background: url("space.jpg") center/cover no-repeat;
+}
+
+.stars-bg {
+  background-image: url("https://assets.codepen.io/3685267/stars.png");
+  opacity: 0.7;
+}
+
+.hero-copy {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translateX(-50px) translate3d(0, var(--parallax-y, 0px), 0);
+  text-align: center;
+  max-width: 640px;
+  opacity: 0;
+  transition: opacity 1.8s ease, transform 2s ease;
+}
+
+.hero h1 {
+  font-size: clamp(3.4rem, 8vw, 5.4rem);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.lede {
+  color: #e4e7ed;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  z-index: 5;
+}
+
+.chevron {
+  width: 14px;
+  height: 14px;
+  margin: 6px auto 0;
+  border-left: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(-45deg);
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateY(0) rotate(-45deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(6px) rotate(-45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(-45deg);
+    opacity: 0.8;
+  }
+}
+
+.section {
+  display: grid;
+  place-items: center;
+  padding: 6rem 1.5rem;
+}
+
+.planet {
+  position: absolute;
+  left: 6%;
+  top: 50%;
+  width: 38vw;
+  max-width: 520px;
+  aspect-ratio: 1/1;
+  background-size: 88%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate3d(0, var(--parallax-y, 0px), 0) translateY(-50%) scale(1);
+  will-change: transform;
+  opacity: 1;
+  filter: drop-shadow(0 22px 32px rgba(0, 0, 0, 0.45));
+  pointer-events: none;
+}
+
+.planet-1 {
+  background-image: url("moon.png");
+}
+
+.planet-2 {
+  background-image: url("venus.png");
+  background-size: 96%;
+}
+
+.planet-3 {
+  background-image: url("neptun.png");
+  background-size: 96%;
+}
+
+.planet-4 {
+  background-image: url("pluto.png");
+  background-size: 96%;
+}
+
+.section-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+  text-align: center;
+  padding: 0;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 1.5s ease, transform 1.7s ease;
+}
+
+.hero-copy.show {
+  opacity: var(--hero-opacity, 1);
+  transform: translate(-50%, -50%) translateX(0) translate3d(0, var(--parallax-y, 0px), 0);
+}
+
+.hero-copy.hide {
+  opacity: 0;
+  transform: translate(-50%, -50%) translateX(-50px) translate3d(0, var(--parallax-y, 0px), 0);
+}
+
+.section-copy.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.section-copy.hide {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.section h2 {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  margin: 0.4rem 0 0.6rem;
+}
+
+.section p {
+  color: #d9dbe4;
+  font-size: 1rem;
+}
+
+.astronaut {
+  position: fixed;
+  right: 4vw;
+  top: 12vh;
+  width: 240px;
+  height: 240px;
+  z-index: 30;
+  pointer-events: none;
+  display: block;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.astronaut img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
+}
+
+@media (max-width: 900px) {
+  .hero-copy {
+    width: 90%;
+  }
+  .astronaut {
+    width: 170px;
+    height: 170px;
+    right: 3vw;
+    top: 10vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .section-copy,
+  .hero-copy {
+    opacity: 1;
+    transform: none;
+  }
+}

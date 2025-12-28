@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astronaut Parallax</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="task2.css">
+</head>
+<body>
+  <div class="layer space-bg" data-depth="0.05" data-global="true"></div>
+  <div class="layer stars-bg" data-depth="0.08" data-global="true"></div>
+  <div class="astronaut" data-depth="0.08" aria-hidden="true">
+    <img src="ast.png" alt="astronaut">
+  </div>
+
+  <header class="hero">
+    <div class="hero-space layer" data-depth="0.12"></div>
+    <div class="hero-copy reveal" data-depth="0.08">
+      <h1 class="hero-type">Mission Apollo 131 </h1>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="chevron"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="planet planet-1 layer" data-depth="0.18"></div>
+      <div class="section-copy reveal">
+        <h2>The Moon</h2>
+        <p>A rocky, differentiated body with a small core, mantle, and crust, covered in impact craters, volcanic plains (maria), and bright highlands, all blanketed in fine dust (regolith) with water ice in shadowed areas, lacking a thick atmosphere</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="planet planet-2 layer" data-depth="0.2"></div>
+      <div class="section-copy reveal">
+        <h2>The Venus</h2>
+        <p>Known for its scorching heat (hottest in the solar system due to a thick CO2 atmosphere), slow, backward rotation (a day is longer than a year), crushing atmospheric pressure, and similarities to Earth in size and mass, but with extreme conditions making it inhospitable, lacking moons or rings, and known as the brightest "morning/evening star"</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="planet planet-3 layer" data-depth="0.24"></div>
+      <div class="section-copy reveal">
+        <h2>The Neptune</h2>
+        <p>A dark, cold ice giant, the farthest planet from the Sun, known for its deep blue color from methane in its hydrogen/helium atmosphere, supersonic winds (fastest in the solar system), large storms like the Great Dark Spot, and a system of faint rings and at least 14 moons, including Triton.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="planet planet-4 layer" data-depth="0.28"></div>
+      <div class="section-copy reveal">
+        <h2>The Pluto</h2>
+        <p>Diverse dwarf planet with mountains, valleys, plains, and glaciers of frozen nitrogen, methane, and carbon monoxide, famous for its heart-shaped region (Sputnik Planitia) and thin blue atmosphere. It has a rocky core, icy mantle, and potentially a subsurface ocean, along with five moons (Charon, Nix, Hydra, Kerberos and Styx.)</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="task2.js"></script>
+</body>
+</html>
